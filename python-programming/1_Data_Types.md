@@ -2,85 +2,82 @@
 
 * * * * *
 
-**Based on lecture materials by Milad Fatenejad, Joshua R. Smith, and Will
-Trimble**
-
-**Modified by Karin Lagesen**
-
 One of the useful features of Python are its compound data types. The main two are lists and dictionaries, but we will mention sets and tuples as well. We will also go over reading text data from files. 
 
 ## Lists
 
 A list is an ordered, indexable collection of data. Lets say you have
-collected some current and voltage data that looks like this:
+collected namessome data that looks like this:
 
 ```
-voltage:
--2.0
--1.0
-0.0
-1.0
-2.0
+Name:
+rapA
+polB
+araD
+araA
+araB
+araC
 
-current:
--1.0
--0.5
-0.0
-0.5
-1.0
+AT_content:
+a
+b
+d
+a
+b
+c
 ```
 
 So you could put that data into lists like
 
 ```python
-voltageList = [-2.0, -1.0, 0.0, 1.0, 2.0]
-print voltageList
-currentList = [-1.0, -0.5, 0.0, 0.5, 1.0]
-print currentList
+names = ['rapA', 'polB', 'araD', 'araA', 'araB', 'araC']
+print names
+AT_contents = []
+print AT_contents
 ```
 
-We can check the voltageList type (obviously it is of type list):
+We can check the names type (obviously it is of type list):
 
 ```python
-type(voltageList)
+type(names)
 ```
 
-Python lists have the charming (annoying?) feature that they are indexed from zero. Therefore, to find the value of the first item in voltageList, we have to check index 0:
+Python lists have the charming (annoying?) feature that they are indexed from zero. Therefore, to find the value of the first item in names, we have to check index 0:
 
 ```python
-voltageList[0]
+names[0]
 ```
 
 And to find the value of the third item:
 
 ```python
-voltageList[2]
+names[2]
 ```
 
 Lists can be indexed from the back using a negative index. The last item of
-currentList
+AT_content
 
 ```python
-currentList[-1]
+AT_content[-1]
 ```
 
 and the next-to-last
 
 ```python
-currentList[-2]
+AT_content[-2]
 ```
 
 You can "slice" items from within a list. Lets say we wanted the second
-through fourth items from voltageList
+through fourth items from names
 
 ```python
-voltageList[1:4]
+names[1:4]
 ```
 
 Or from the third item to the end
 
 ```python
-voltageList[2:]
+names[2:]
 ```
 
 and so on. Note: if you do not have a number on both sides of the :, the side lacking a number will default to 
@@ -99,57 +96,68 @@ One useful method is append. Lets say we want to stick the following data
 on the end of both our lists.
 
 ```
-voltage:
-3.0
-4.0
+extraNames:
+yabI
+thiQ
 
-current:
-1.5
-2.0
+extraContents:
+I
+Q
 ```
 
 If you want to append items to the end of a list, use the append method.
 
 ```python
-voltageList.append(3.0)
-voltageList.append(4.0)
-print voltageList
+names.append('yabI')
+names.append('thiQ')
+print names
 ```
 You can now see these items at the end of the list.
 
 You can see how that approach might be tedious in certain cases. If you
-want to add a list onto the end of another one, use extend.
+want to add a list onto the end of another one, 
 
 ```python
-currentList.extend([1.5, 2.0])
-print currentList
+AT_content.extend([I, Q])
+print AT_content
 ```
-
-Question: in the last exercise, we manually, with either append or extend, added value to our list by typing in the list with its values into the commad. How could you avoid doing this?  
 
 ### Length of Lists
 
 Sometimes you want to know how many items are in a list. Use the len command.
 
 ```python
-len(voltageList)
+len(names)
 ```
 
-### Heterogeneous Data
+### Heterogeneous Data and Lists of Lists
 
 Lists can contain hetergeneous data.
 
 ```python
-dataList = ["experiment: current vs. voltage", \
+dataList = ["Experiment", \
           "run", 47, \
-          "temperature", 372.756, \
-          "current", [-1.0, -0.5, 0.0, 0.5, 1.0], \
-          "voltage", [-2.0, -1.0, 0.0, 1.0, 2.0]]
+          "temperature", 55, \
+          "names", ['rapA', 'polB', 'araD', 'araA', 'araB', 'araC', 'yabI', 'thiQ'], \
+          "AT_content", []]
 ```
 
 We've got strings, ints, floats, and even other lists in there. The slashes
 are there so we can continue on the next line. They aren't necessary but
 they can sometimes make things look better.
+
+Notice that there is actually two lists contained in this list. You can access these using indexing
+as before. Let's experiment a bit:
+
+```python
+dataList[6]
+dataList[6][2]
+````
+You now see you got the name of the third protein in the list (again, python list are zero based).
+
+**Task:** can you figure out what the AT content of this protein is?
+
+
 
 ## Assigning Variables to Other Variables
 
@@ -186,7 +194,9 @@ voltage: [-2.0, -1.0, 0.0, 1.0, 2.0]
 We can read this data into a variable of type list pretty easily.
 
 ```python
-fh = open("data.dat")
+ 
+ 
+ fh = open("data.dat")
 ivdata = fh.readlines()
 fh.close()
 

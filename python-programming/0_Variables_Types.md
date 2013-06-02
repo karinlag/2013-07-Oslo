@@ -2,10 +2,6 @@
 
 * * * * *
 
-**Based on lecture materials by Mike Jackson and Stephen McGough**
-
-**Modified by Karin Lagesen**
-
 There are many different kinds of programming languages. The language we are teaching you today is python, which is an interpreted language. This means that we can write in code and it will be executed right away. 
 
 You can deal with python in two ways, either directly in an interpreter, or you can write bits of code in a file and have that run by the interpreter for you. 
@@ -14,12 +10,12 @@ NOTE: a line anywere in python that is preceeded with a # is a comment and is ig
 
 ## The python interpreter
 
-Let's bring up the Python interpreter. This is what it looks like on cygwin - linux is pretty similar:
+Let's bring up the Python interpreter. This is what it looks like on a mac - linux is pretty similar:
 ```python
-Python 2.7.3 (default, Dec 18 2012, 13:50:09)
-[GCC 4.5.3] on cygwin
+Python 2.7.1 (r271:86832, Jun 16 2011, 16:59:05) 
+[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2335.15.00)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
->>>
+>>> 
 ```
 See the three >? You type in your commands after that.
 
@@ -36,11 +32,13 @@ We can also work with strings in python:
 print "Hello world!"
 print 'Ada ' + ' Lovelace'
 ```
-You can see that these are actually strings and part of the python language in that they have quotation marks around them.
+You can see that these are actually strings and part of the python language in that they have quotation marks around them. Note: to create strings, you can use both single and double quotes.
 
 As you can see, strings can actually be added together.
 
-Please note that there is a space before Lovelace in the last instruction. Without that one, python would have returned 'AdaLovelace' instead.
+**Task:** Note that there is a space before Lovelace in the last instruction. Repeat that instruction without this space. Can you see the difference? 
+
+**Task:** type in `print 'Ada', 'Lovelace'`. Can you see what happened here?
 
 ## Assigning values to variables
 
@@ -56,12 +54,15 @@ a = 2 + 7
 print a
 ```
 
+Assignment is done by having a variable name to the left, then an equal sign, and then the value to the left of the equal sign.
+
 Variables in Python are not returned to you by the interpreter, as you can see. They can be thought of as being just names. However, beware that Python does not assume default variables - you have to assign them before use:
 ```python
 print b
 ```
 
-What happens when we try to "combine" two Python variables: string and integer:
+We can try to "combine" two Python variables: string and integer:
+
 ```python
 string = "text"
 number = 4
@@ -76,12 +77,11 @@ However, what happens if we add string and number?
 print string + number
 ```
 
-
 Python has what we call dynamic and strong typing - dynamic in that you do not have to declare variables, and strong in that it objects if you try to do something to a variable that the data type in that variable does not permit.
 
 ## Type conversion
 
-Sometimes a number can be interpreted as a text string when you need it to work as a number. This can be fixed by converting it to an integer (a whole number). We can also convert to decimal numbers - floats. These have a decimal point in them.
+Sometimes a number can be interpreted as a text string when you need it to work as a number. This can be fixed by **converting** it to an integer (a whole number). We can also convert to decimal numbers - floats. These have a decimal point in them.
 
 ```python
 print int('2') + 3
@@ -95,14 +95,14 @@ Adding:
 print 10 + 3
 ```
 
-Integer division:
-```python
-print 10 / 3
-```
-
 Remainder:
 ```python
 print 10 % 3
+```
+
+Integer division:
+```python
+print 10 / 3
 ```
 
 Note: python 2x does integer division, i.e. it floors the results.
@@ -131,7 +131,6 @@ a = 'Ada-Lovelace'
 b = a.split('-')
 print b
 ```
-
 
 In order to list all Python built-in methods for string:
 ```python
