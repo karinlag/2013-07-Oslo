@@ -196,17 +196,27 @@ for i in range(len(c)):
     print c[i]
 ```
 
-With a list, then, it's clear that we can use the **in** keyword to
-indicate a list of things. What about a nested loops around a list of
-lists?
+On lists, we can use the **in** keyword to iterate over elements in a list. We can also 
+create **nested** for loops, where one for loop is inside the other.
+
+Let's create some lists containing names of cities and a list containing some countries to demonstrate this:
 
 ```python
+# cities
 italy = ["Rome", "Pisa", "Florence", "Venice", "Trieste"]
 argentina = ["Mendoza", "Buenos Aires", "Patagonia"]
 india = ["Ahmedabad","Kolkata", "Chennai", "Jaipur", "Surat"]
 us = ["Chicago", "Austin", "New York", "San Fran"]
 nations = [italy, argentina, india, us]
+# a list containing names of countries
 nationnames = ["italy","argentina", "india", "us"]
+```
+
+So, now we have four lists with cities, and one with names of nations. We can
+now use two for loops, one inside the other to display these nicely:
+
+
+```python
 for nation in nations :
     print nationnames[nations.index(nation)] + ": "
     for city in nation :
@@ -218,7 +228,7 @@ The data makes more sense if the keys were the nation names and the
 values were lists of cities. Importantly, python has given us a tool
 specifically for dictionary looping.
 
-The syntax for looping through the keys and values of a dictionary is :
+The syntax for looping through the keys and values of a dictionary is:
 
     for key, value in dictionary.iteritems():
 
@@ -227,10 +237,7 @@ what will fill those variables. Here, we rewrite the previous loop using
 this clever syntax.
 
 ```python
-italy = ["Rome", "Pisa", "Florence", "Venice", "Trieste"]
-argentina = ["Mendoza", "Buenos Aires", "Patagonia"]
-india = ["Ahmedabad","Kolkata", "Chennai", "Jaipur", "Surat"]
-us = ["Chicago", "Austin", "New York", "San Fran"]
+# first, we create the dictionary
 nations = {"italy":italy, "argentina":argentina, "india":india, "us":us}
 for nation, cities in nations.iteritems() :
     print nation + " : "
@@ -254,7 +261,7 @@ for n in range(1,2000):
 ```
 
 Something you might want to do instead of breaking is to continue to the
-next iteration of a loop, giving up on the current one..
+next iteration of a loop, giving up on the current one.
 
 ```python
 reasonable = 10
@@ -270,7 +277,7 @@ Final Example
 =============
 
 We've seen a lot so far. Lets work through a slightly lengthier example
-together. I'll use some of the concepts we already saw and introduce a
+together. We'll use some of the concepts we already saw and introduce a
 few new concepts. To run the example, you'll need to locate a short file
 containing phone numbers. The file is in your repository is called phonenums.txt.
 
@@ -294,7 +301,7 @@ for line in f: # iterate through the text file, one line at a time (think of the
 print areacodes # Print the answer
 ```
 
-**Short exercise**
+**Task**
 
 - Modify the script so that it prints the results nicely, with first the area code, then a 
   tab, and then the number of times it occurs.
