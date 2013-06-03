@@ -31,13 +31,15 @@ print get_initials(b)
 print get_initials('Anna Karenina')
 ```
 
-The keyword for defining a function is def. After that we have the function name followed by any arguments in paranthesis. After that comes
-the code that the function performs. Input to the function is available in the arguments passed to it.
+The keyword for defining a function is def. After that we have the function name followed 
+by any arguments in paranthesis. After that comes the code that the function performs. Input 
+to the function is available in the arguments passed to it.
 
-NOTE: any variables defined in the function is invisible outside of it. Any results that is created in it must be returned to the outside
-using the return statement.
+NOTE: any variables defined in the function is invisible outside of it. Any results that is 
+created in it must be returned to the outside using the return statement.
 
-Now instead of rerunning the code for each person, we just had to call our function. Note that our function takes one argument (full_name). 
+Now instead of rerunning the code for each person, we just had to call our function. Note 
+that our function takes one argument (full_name). 
 
 ##Creating modules
 
@@ -53,8 +55,7 @@ Now run this script on the command line, just like it is. You should get the let
 
 But, how come this code is run?  What happens is that when you run a script directly
 from the command line, a variable that is called __name__ is set to have the value __main__. We then ask python
-to test on this variable with an if statement, and if it is true, whatever is inside of it is run. In this case, we test the function. This variable
-will not be __name__ if we use this script inside of another script.
+to test on this variable with an if statement, and if it is true, whatever is inside of it is run. In this case, we test the function. This variable will not be __name__ if we use this script inside of another script.
 
 We are now going to import this function into a different script:
 
