@@ -266,7 +266,7 @@ sets, but its good to know they exist.
 
 ## Dictionaries
 
-Recall our file data.dat which contained our current-voltage data and also
+Recall our file data.dat which contained our experiment data and also
 some metadata. We were able to import the data as a list, but clearly the
 list type is not the optial choice for a data model. The dictionary is a
 much better choice. A python dictionary is a collection of key-value
