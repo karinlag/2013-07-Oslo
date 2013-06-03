@@ -7,7 +7,7 @@ One of the useful features of Python are its compound data types. The main two a
 ## Lists
 
 A list is an ordered, indexable collection of data. Lets say you have
-collected namessome data that looks like this:
+collected some data that looks like this:
 
 ```
 Name:
