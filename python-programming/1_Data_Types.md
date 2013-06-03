@@ -155,8 +155,8 @@ Notice that there is actually two lists contained in this list. You can access t
 as before. Let's experiment a bit:
 
 ```python
-dataList[7]
-dataList[7][2]
+print dataList[7]
+print dataList[7][2]
 ````
 You now see you got the name of the third protein in the list (again, python list are zero based).
 
