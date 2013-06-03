@@ -19,12 +19,12 @@ araB
 araC
 
 AT_content:
-a
-b
-d
-a
-b
-c
+45.1
+44.7
+44.7
+44.5
+41.9
+47.4
 ```
 
 So you could put that data into lists like
@@ -32,8 +32,8 @@ So you could put that data into lists like
 ```python
 names = ['rapA', 'polB', 'araD', 'araA', 'araB', 'araC']
 print names
-AT_contents = []
-print AT_contents
+AT_content = [45.1, 44.7, 44.7, 44.5, 41.9, 47.4]
+print AT_content
 ```
 
 We can check the names type (obviously it is of type list):
@@ -101,8 +101,8 @@ yabI
 thiQ
 
 extraContents:
-I
-Q
+46.1
+42.9
 ```
 
 If you want to append items to the end of a list, use the append method.
@@ -112,19 +112,24 @@ names.append('yabI')
 names.append('thiQ')
 print names
 ```
-You can now see these items at the end of the list.
-
-You can see how that approach might be tedious in certain cases. If you
-want to add a list onto the end of another one, 
+You can now see these items at the end of the list. Note: append only allows
+you to stick one thing onto a list. You can see how that approach might be tedious in certain cases. If you
+want to add a list onto the end of another one, we can create a new list and 
+stick that list onto our list.
 
 ```python
-AT_content.extend([I, Q])
+AT_content.extend([46.1, 42.9])
 print AT_content
 ```
 
+**Task:** create a copy of AT\_content (either assign AT\_content to a new 
+variable, or just create a new list with the same content). Then, create a new list
+with the AT contents of the two new proteins. Try using both append and extend to add the new values.
+Can you see what the difference between append and extend is?
+
 ### Length of Lists
 
-Sometimes you want to know how many items are in a list. Use the len command.
+Sometimes we want to know how many items are in a list. Use the len command.
 
 ```python
 len(names)
@@ -135,11 +140,11 @@ len(names)
 Lists can contain hetergeneous data.
 
 ```python
-dataList = ["Experiment", \
+dataList = ["Experiment", "AT content effects", \
           "run", 47, \
           "temperature", 55, \
           "names", ['rapA', 'polB', 'araD', 'araA', 'araB', 'araC', 'yabI', 'thiQ'], \
-          "AT_content", []]
+          "AT_content", [45.1, 44.7, 44.7, 44.5, 41.9, 47.4, 46.1, 42.9]]
 ```
 
 We've got strings, ints, floats, and even other lists in there. The slashes
@@ -150,8 +155,8 @@ Notice that there is actually two lists contained in this list. You can access t
 as before. Let's experiment a bit:
 
 ```python
-dataList[6]
-dataList[6][2]
+dataList[7]
+dataList[7][2]
 ````
 You now see you got the name of the third protein in the list (again, python list are zero based).
 
@@ -179,43 +184,36 @@ Into Python or the help documentation for more info.
 ## Reading From Files
 
 At this point it is useful to take a detour regarding files. Lets say you
-have a file with some current and voltage data and some metadata.
+have a file with some data in it:
 
 ```
 data.dat:
 
-experiment: current vs. voltage
+Experiment: AT content effects
 run: 47
-temperature: 372.756
-current: [-1.0, -0.5, 0.0, 0.5, 1.0]
-voltage: [-2.0, -1.0, 0.0, 1.0, 2.0]
+temperature: 55
+names: ['rapA', 'polB', 'araD', 'araA', 'araB', 'araC', 'yabI', 'thiQ']
+AT content: [45.1, 44.7, 44.7, 44.5, 41.9, 47.4, 46.1, 42.9]
 ```
 
 We can read this data into a variable of type list pretty easily.
 
-```python
- 
- 
- fh = open("data.dat")
-ivdata = fh.readlines()
+```python 
+fh = open("data.dat")
+ptdata = fh.readlines()
 fh.close()
 
-print ivdata
+print ptdata
 ```
 
 Your results should look like this:
 
 ```
-['experiment: current vs. voltage\n',
- 'run: 47\n',
- 'temperature: 372.756\n',
- 'current: [-1.0, -0.5, 0.0, 0.5, 1.0]\n',
- 'voltage: [-2.0, -1.0, 0.0, 1.0, 2.0]\n',
- '\n']
+['Experiment: AT content effects\n', 'run: 47\n', 'temperature: 55\n', "names: ['rapA', 'polB', 'araD', 'araA', 'araB', 'araC', 'yabI', 'thiQ']\n", 'AT content: [45.1, 44.7, 44.7, 44.5, 41.9, 47.4, 46.1, 42.9]\n']
 ```
-What happened here, is that each line in your file became one element in the ivdata list.
+What happened here, is that each line in your file became one element in the ptdata list. Note, the newlines are also included.
 
-Right now the data in ivdata isn't in a particularly useful format, but you
+Right now the data in ptdata isn't in a particularly useful format, but you
 can imagine that with some additional programming we could straighten it
 out. We will eventually do that.
 
@@ -223,7 +221,7 @@ out. We will eventually do that.
 
 Tuples are another of python's basic compound data types that are almost
 like lists. The difference is that a tuple is immutable; once you put the
-data in it, the tuple cannot be changed. You define a tuple as follows.
+data in it, the tuple cannot be changed. We define a tuple as follows.
 
 ```python
 tup = ("red", "white", "blue")
@@ -232,7 +230,7 @@ type(tup)
 
 You can slice and index the tuple exactly like you would a list. Tuples are
 used in the inner workings of python, and a tuple can be used as a key in a
-dictionary (whoch you will see soon), whereas a list cannot as we will see in a moment.
+dictionary (which you will see soon), whereas a list cannot as we will see in a moment.
 
 ## Sets
 
@@ -275,11 +273,10 @@ Here's a way to create a dictionary that contains all the data in our
 data.dat file in a more sensible way than a list.
 
 ```python
-dataDict = {"experiment": "current vs. voltage", \
-                   "run": 47, \
-                   "temperature": 372.756, \
-                   "current": [-1.0, -0.5, 0.0, 0.5, 1.0], \
-                   "voltage": [-2.0, -1.0, 0.0, 1.0, 2.0]}
+dataDict = {'Experiment' : 'AT content effects', 'run': 47,  \
+'temperature': 55, \
+'names': ['rapA', 'polB', 'araD', 'araA', 'araB', 'araC', 'yabI', 'thiQ'], \
+'AT content': [45.1, 44.7, 44.7, 44.5, 41.9, 47.4, 46.1, 42.9]}
 ```
 
 This model is clearly better because you no longer have to remember that
@@ -290,31 +287,31 @@ directly to "run":
 print dataDict["run"]
 ```
 
-If you wanted the voltage data list:
+If you wanted the names data list:
 
 ```python
-print dataDict["voltage"]
+print dataDict["names"]
 ```
 
-Or perhaps you wanted the last element of the current data list
+Or perhaps you wanted the last element of the AT content data list
 
 ```python
-print dataDict["current"][-1]
+print dataDict["AT content"][-1]
 ```
 
 Once a dictionary has been created, you can change the values of the data
 if you like.
 
 ```python
-dataDict["temperature"] = 3275.39
+dataDict["temperature"] = 66
 print dataDict["temperature"]
 ```
 
 You can also add new keys to the dictionary.
 
 ```python
-dataDict["user"] = "Johann G. von Ulm"
-print dataDictt["user"]
+dataDict["Experimenter"] = "Jane Doe"
+print dataDict["Experimenter"]
 ```
 
 Dictionaries, like strings, lists, and all the rest, have built-in methods.

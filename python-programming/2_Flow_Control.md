@@ -1,13 +1,10 @@
 # Python 2 : Flow Control - Loops, Conditionals, etc
 
-**Based on Lecture Materials By: Milad Fatenejad and Katy Huff**
-
-*Modified by Karin Lagesen*
 
 Conditionals
 ============
 
-A conditional (if statement) is some statement that in general says : 
+A conditional (if statement) is some statement that in general says: 
 "When some boolean is true, do the following. Otherwise, do this other
 thing."
 
@@ -52,9 +49,7 @@ else:
 
 What do you expect the value of sign to be after it has run?
 
-Now type it in, and run it, and see if the value of sign is what
-you expected it to be. Note, you have to press enter twice after 
-"Have a nice day", then you can show the value of sign by printing it.
+Please note: the if statement consists of everything from the first if until the end of the else.
 
 The behavior of this code snippet should be pretty clear, but there is
 something peculiar. How does Python know where the if-statement ends?
@@ -65,14 +60,16 @@ delimit blocks with curly braces. Python uses ''indentation'' to delimit
 code blocks. The **indentation** above is NOT just to make things look
 pretty - it tells Python what the body of the if-statement is. This is
 true whenever we create any code blocks, such as the bodies of loops,
-functions or classes. This is also why we had to print enter twice after
+functions or classes. This is also why you will have to press enter twice after
 the if statement - after the first time, python is offering you to type 
 in more things that would be executed in the else, so you press enter to 
 tell python that you are done, and that it should evaluate the if.
 
-**Short exercise**
+**Task:** Type it in, and run it, and see if the value of sign is what
+you expected it to be. Note, you have to press enter twice after 
+"Have a nice day", then you can show the value of sign by printing it.
 
-Repeat the if statement above, and test out what the value if i has to
+**Task:** Repeat the if statement above, and test out what the value of i has to
 be in order to be able to trigger the else clause.
 
 
@@ -95,12 +92,14 @@ while counter < len(sequence):
   counter += 1
 ```
 
-Some new syntax has been introduced in this example.
+So, what happens in this example?
 
--   On line 1, we define a counter.
+- 	On line 1 we define a counter. While loops often have something that is
+	is being incremented, i.e. added to every time the loop runs
+	
 -   On line 3 we begin the while loop. The conditional of the while loop
     is in this case whether the counter is less than the length of the
-    sequence we are operating on. Since the last element in the list will
+    sequence object we are operating on. Since the last element in the list will
     always be one less than the length of the list, this will become false
 
 -   On line 4, we compute the product of the elements just to make this
@@ -113,39 +112,37 @@ Some new syntax has been introduced in this example.
 **Watch Out**
 
 Since a while loop will continue until its conditional is no longer
-true, a **poorly formed** while loop might repeat forever. For example :
+true, a **poorly formed** while loop might repeat forever. For example:
 
 ```python
 i=0
-mystring="Well, there's egg and bacon, egg and spam, egg bacon and"
+mystring="This is a long string, can I print the last word maybe?"
 while i < len(mystring):
   fields = mystring.split()
   print fields[i]
-
-
-print "When will this be printed?!" 
 ```
 
 Tip: if you run this, you can interrupt it with Ctrl-C!
 
-
 Since the variable **i** never changes within the while loop, we can
-expect that the conditional, **i<1** will remain true forever and the
+expect that the conditional, **i<len(mystring)** will remain true forever and the
 while loop will just go round and round and continue forever.
 
 **Combining while and if**
 
 To create nested while and if loops, the indentation (preferably two or four
-spaces) should increase for each looping level. Let's put the following source code in a file and save it as "script.py".
+spaces) should increase for each looping level.
 
 ```python
 words =	["first", "second#", "third", "f#ourth", "fifth"]
 counter = 0
 while counter < len(words):
-    if "#" not in words:
+    if "#" not in words[counter]:
        print words[counter]
     counter += 1
 ```
+
+**Task:** Put the preceeding source code in a file and save it as "script.py". Run it in the terminal using python. Can you see what happens here?
 
 
 For Loops
