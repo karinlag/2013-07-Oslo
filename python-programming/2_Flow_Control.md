@@ -78,8 +78,7 @@ While Loops
 
 Lets start by looking at while loops since they function like while
 loops in many other languages. The example below takes a list of
-integers and computes the product of each number in the list up to the
--1 element.
+integers and computes the product of each number in the list.
 
 A while loop will repeat the instructions within itself until the
 conditional that defines it is no longer true.
