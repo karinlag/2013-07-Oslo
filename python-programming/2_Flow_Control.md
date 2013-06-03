@@ -14,12 +14,12 @@ other languages:
 ```python
 i=1
 j=2
-i==j # i is equal to j : FALSE
+i==j # i is equal to j : False
 i<j  # i is less than j : True
-i<=j # i is less than or equal to j : TRUE
-i>j  # i is greater than j
-i>=j # i is greater than or equal to j : FALSE
-i!=j # i is not equal to j : TRUE
+i<=j # i is less than or equal to j : True
+i>j  # i is greater than j : False
+i>=j # i is greater than or equal to j : False
+i!=j # i is not equal to j : True
 ```
 
 However, python has other equivalence test statements that are fairly
