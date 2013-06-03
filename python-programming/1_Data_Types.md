@@ -7,7 +7,7 @@ One of the useful features of Python are its compound data types. The main two a
 ## Lists
 
 A list is an ordered, indexable collection of data. Lets say you have
-collected namessome data that looks like this:
+collected some data that looks like this:
 
 ```
 Name:
@@ -155,8 +155,8 @@ Notice that there is actually two lists contained in this list. You can access t
 as before. Let's experiment a bit:
 
 ```python
-dataList[7]
-dataList[7][2]
+print dataList[7]
+print dataList[7][2]
 ````
 You now see you got the name of the third protein in the list (again, python list are zero based).
 
