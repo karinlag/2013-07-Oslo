@@ -93,13 +93,13 @@ while counter < len(sequence):
 
 So, what happens in this example?
 
-- 	On line 1 we define a counter. While loops often have something that is
-	is being incremented, i.e. added to every time the loop runs
+-   On line 1 we define a counter. While loops often have something that is is being incremented, i.e. added to every time the loop runs
 	
 -   On line 3 we begin the while loop. The conditional of the while loop
     is in this case whether the counter is less than the length of the
-    sequence object we are operating on. Since the last element in the list will
-    always be one less than the length of the list, this will become false
+    sequence object we are operating on. The length of a list is always one
+    more than the last index of the list, so when we do less than the length
+    of it we go to the last, but no longer
 
 -   On line 4, we compute the product of the elements just to make this
     more interesting.
@@ -107,6 +107,7 @@ So, what happens in this example?
 -   On the last line we increment the counter, using the += syntax, this
     means that whatever is after the += sign will be added to the value
     that the variable already has.
+
 
 **Watch Out**
 
