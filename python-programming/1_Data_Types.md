@@ -209,7 +209,9 @@ print ptdata
 Your results should look like this:
 
 ```
-['Experiment: AT content effects\n', 'run: 47\n', 'temperature: 55\n', "names: ['rapA', 'polB', 'araD', 'araA', 'araB', 'araC', 'yabI', 'thiQ']\n", 'AT content: [45.1, 44.7, 44.7, 44.5, 41.9, 47.4, 46.1, 42.9]\n']
+['Experiment: AT content effects\n', 'run: 47\n', 'temperature: 55\n', 
+"names: ['rapA', 'polB', 'araD', 'araA', 'araB', 'araC', 'yabI', 'thiQ']\n", 
+'AT content: [45.1, 44.7, 44.7, 44.5, 41.9, 47.4, 46.1, 42.9]\n']
 ```
 What happened here, is that each line in your file became one element in the ptdata list. Note, the newlines are also included.
 
