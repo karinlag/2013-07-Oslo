@@ -1,5 +1,5 @@
-experiment: current vs. voltage
+Experiment: AT content effects
 run: 47
-temperature: 372.756
-current: [-1.0, -0.5, 0.0, 0.5, 1.0]
-voltage: [-2.0, -1.0, 0.0, 1.0, 2.0]
+temperature: 55
+names: ['rapA', 'polB', 'araD', 'araA', 'araB', 'araC', 'yabI', 'thiQ']
+AT content: [45.1, 44.7, 44.7, 44.5, 41.9, 47.4, 46.1, 42.9]
