@@ -30,7 +30,7 @@ We can also work with strings in python:
 
 ```python
 print "Hello world!"
-print 'Ada ' + ' Lovelace'
+print 'Ada' + ' Lovelace'
 ```
 You can see that these are actually strings and part of the python language in that they have quotation marks around them. Note: to create strings, you can use both single and double quotes.
 
@@ -105,7 +105,7 @@ Integer division:
 print 10 / 3
 ```
 
-Note: python 2x does integer division, i.e. it floors the results.
+Note: python 2x does integer division, i.e. it floors the results. To get a float out, we will need to ensure that at least one of the numbers is a float, by for instance multipylying it with 1.0.
  
 
 ## String operations
@@ -114,7 +114,7 @@ Python provides a number of very useful methods for string variables.
 We can check the string length:
 
 ```python
-a = 'Krakow'
+a = 'Oslo'
 print len(a)
 ```
 
@@ -131,6 +131,17 @@ a = 'Ada-Lovelace'
 b = a.split('-')
 print b
 ```
+
+We can also count the occurrence of a substring:
+
+```python
+a = 'She sells seashells'
+ses = a.count("s")
+print ses
+```
+
+**Task**: did the number of s-es reported correspond to how many you counted?
+
 
 In order to list all Python built-in methods for string:
 ```python
