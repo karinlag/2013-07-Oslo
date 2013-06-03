@@ -335,8 +335,8 @@ Its worth mentioning that the value part of a dictionary can be any kind of
 data, even another dictionary, or some complex nested structure. The same
 is true about a list: they can contain complex data types.
 
-Since tuples are immutable, they can be used as keys for dictionaries.
-Lists are mutable, and therefore cannot.
+However, the key has to be something that cannot change. This means numbers, strings
+and tuples. Lists are mutable, and therefore cannot.
 
 When you architect software in python, most data will end up looking either
 like a list or a dictionary. These two data types are very important in
